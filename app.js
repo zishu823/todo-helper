@@ -8,14 +8,13 @@ const app = express();
 app.use(express.json());
 
 // 连接 MongoDB 数据库
-mongoose.connect('mongodb://localhost:27017/todo-helper', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => {
-    console.log("MongoDB connected successfully");
-}).catch((err) => {
-    console.error("MongoDB connection error:", err);
-});
+mongoose.connect('mongodb://localhost:27017/your-database')
+  .then(() => {
+    console.log('Connected to MongoDB...');
+  })
+  .catch(err => {
+    console.error('Could not connect to MongoDB...', err);
+  });
 
 // 定义任务模型
 const TaskSchema = new mongoose.Schema({
